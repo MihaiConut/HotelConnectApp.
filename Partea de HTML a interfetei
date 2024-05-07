@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Stop</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Hotel Stop</h1>
+            <nav>
+                <a href="#home">Acasă</a>
+                <a href="#rooms">Camere</a>
+                <a href="#about">Despre Noi</a>
+                <a href="#contact">Contact</a>
+                <a href="Login.html" class="login-button">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <h2>Bine ați venit la Hotel Stop</h2>
+            <p>Experimentați confortul și eleganța noastră într-un mediu primitor și rafinat.</p>
+        </div>
+    </section>
+
+    <section id="rooms">
+        <div class="container">
+            <h2>Camere</h2>
+            <p>Descoperiți camerele noastre spațioase și elegant decorate. Fiecare cameră oferă facilități moderne și vedere panoramică la oraș.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Despre Noi</h2>
+            <p>Hotel Stop reprezintă o destinație premium pentru călătorii de afaceri sau vacanțe relaxante. Cu personal calificat și servicii de cea mai înaltă calitate, vă garantăm o ședere deosebită.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Email: office@hotelelegance.com</p>
+            <p>Tel: 0755 123 456</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hotel Stop. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
