@@ -1,0 +1,124 @@
+document.addEventListener('DOMContentLoaded', function () {
+    var rooms = document.querySelectorAll('.room');
+    var notificationList = document.getElementById('notification-list');
+    var clearNotificationsButton = document.getElementById('clear-notifications');
+
+    function updateLocalStorage(roomNumber, data) {
+        var roomData = JSON.parse(localStorage.getItem('roomData')) || {};
+        roomData[roomNumber] = data;
+        localStorage.setItem('roomData', JSON.stringify(roomData));
+    }
+
+    function loadRoomData() {
+        var roomData = JSON.parse(localStorage.getItem('roomData')) || {};
+        notificationList.innerHTML = '';
+        Object.keys(roomData).forEach(function (roomNumber) {
+            var room = document.getElementById('room-' + roomNumber);
+            if (room) {
+                var roomInfo = roomData[roomNumber] || { status: 'Liber', actions: [] };
+                var roomStatus = roomInfo.status;
+                var task = roomInfo.task || '';
+                room.querySelector('.room-status').textContent = roomStatus;
+
+                var actions = roomInfo.actions || [];
+                actions.forEach(function (action) {
+                    addNotification(roomNumber, action);
+                });
+            }
+        });
+    }
+
+    function deleteNotification(roomNumber, index) {
+        var roomData = JSON.parse(localStorage.getItem('roomData')) || {};
+        if (roomData[roomNumber] && roomData[roomNumber].actions) {
+            roomData[roomNumber].actions.splice(index, 1);
+            localStorage.setItem('roomData', JSON.stringify(roomData));
+            loadRoomData();
+        }
+    }
+
+    function addNotification(roomNumber, message) {
+        var notification = document.createElement('li');
+        notification.classList.add('notification');
+        notification.textContent = message;
+
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Șterge';
+        deleteButton.addEventListener('click', function () {
+            var index = Array.from(notificationList.children).indexOf(notification);
+            deleteNotification(roomNumber, index);
+        });
+
+        notification.appendChild(deleteButton);
+        notificationList.appendChild(notification);
+    }
+
+    function addStatusUpdateButton(room, roomNumber) {
+        var updateStatusButton = document.createElement('button');
+        updateStatusButton.textContent = 'Actualizează Starea';
+        updateStatusButton.addEventListener('click', function () {
+            var roomData = JSON.parse(localStorage.getItem('roomData')) || {};
+            var roomInfo = roomData[roomNumber] || { status: 'Liber', actions: [] };
+            var actions = roomInfo.actions || [];
+
+            var newStatus = prompt('Introduceți noua stare pentru camera ' + roomNumber + ':');
+            if (newStatus) {
+                // Adăugăm notificare pentru schimbarea stării camerei
+                var message = 'Starea camerei ' + roomNumber + ' a fost actualizată la "' + newStatus + '"';
+                actions.push(message);
+
+                var data = {
+                    status: newStatus,
+                    task: roomInfo.task || '',
+                    actions: actions
+                };
+
+                updateLocalStorage(roomNumber, data);
+                loadRoomData();
+            }
+        });
+        room.appendChild(updateStatusButton);
+    }
+
+    function addAssignTaskButton(room, roomNumber) {
+        var assignTaskButton = document.createElement('button');
+        assignTaskButton.textContent = 'Atribuie Sarcină';
+        assignTaskButton.addEventListener('click', function () {
+            var roomData = JSON.parse(localStorage.getItem('roomData')) || {};
+            var roomInfo = roomData[roomNumber] || { status: 'Liber', actions: [] };
+            var actions = roomInfo.actions || [];
+
+            var task = prompt('Introduceți sarcina pentru camera ' + roomNumber + ':');
+            if (task) {
+                // Verificăm dacă notificarea există deja în lista de acțiuni
+                if (!actions.includes('Sarcina "' + task + '" este atribuită pentru camera ' + roomNumber)) {
+                    // Adăugăm notificare pentru atribuirea sarcinii camerei
+                    var message = 'Sarcina "' + task + '" este atribuită pentru camera ' + roomNumber;
+                    actions.push(message);
+
+                    var data = {
+                        status: roomInfo.status,
+                        task: task,
+                        actions: actions
+                    };
+
+                    updateLocalStorage(roomNumber, data);
+                    loadRoomData();
+                }
+            }
+        });
+        room.appendChild(assignTaskButton);
+    }
+
+    loadRoomData();
+
+    rooms.forEach(function (room) {
+        var roomNumber = room.querySelector('.room-number').textContent;
+        addStatusUpdateButton(room, roomNumber);
+        addAssignTaskButton(room, roomNumber);
+    });
+
+    clearNotificationsButton.addEventListener('click', function () {
+        notificationList.innerHTML = '';
+    });
+});
