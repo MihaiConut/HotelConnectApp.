@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotelConnect App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>HotelConnect App</h1>
+    </header>
+
+    <main>
+        <section id="room-list">
+            <h2>Lista Camerelor</h2>
+            <!-- Afișează lista cu camerele și starea lor -->
+
+          <!-- Adaugă această secțiune în locul listei de camere existente -->
+
+<ul id="rooms">
+    <!-- Camera 101-132 -->
+    <li id="room-101" class="room">
+        <span class="room-number">101</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-102" class="room">
+        <span class="room-number">102</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-103" class="room">
+        <span class="room-number">103</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-104" class="room">
+        <span class="room-number">104</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-105" class="room">
+        <span class="room-number">105</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-106" class="room">
+        <span class="room-number">106</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-107" class="room">
+        <span class="room-number">107</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-108" class="room">
+        <span class="room-number">108</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-201" class="room">
+        <span class="room-number">201</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-202" class="room">
+        <span class="room-number">202</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-203" class="room">
+        <span class="room-number">203</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-204" class="room">
+        <span class="room-number">204</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-205" class="room">
+        <span class="room-number">205</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-206" class="room">
+        <span class="room-number">206</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-207" class="room">
+        <span class="room-number">207</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-208" class="room">
+        <span class="room-number">208</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-301" class="room">
+        <span class="room-number">301</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-302" class="room">
+        <span class="room-number">302</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-303" class="room">
+        <span class="room-number">303</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-304" class="room">
+        <span class="room-number">304</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-305" class="room">
+        <span class="room-number">305</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-306" class="room">
+        <span class="room-number">306</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-307" class="room">
+        <span class="room-number">307</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-308" class="room">
+        <span class="room-number">308</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-401" class="room">
+        <span class="room-number">401</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-402" class="room">
+        <span class="room-number">402</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-403" class="room">
+        <span class="room-number">403</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-404" class="room">
+        <span class="room-number">404</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-405" class="room">
+        <span class="room-number">405</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-406" class="room">
+        <span class="room-number">406</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-407" class="room">
+        <span class="room-number">407</span>
+        <span class="room-status">Liber</span>
+    </li>
+    <li id="room-408" class="room">
+        <span class="room-number">408</span>
+        <span class="room-status">Liber</span>
+    </li>
+</ul>
+
+        </section>
+
+        <section id="notifications">
+            <h2>Notificări</h2>
+            <!-- Afișează notificările aici -->
+            <ul id="notification-list">
+                <!-- Exemplu pentru o notificare -->
+                <li class="notification">Camera 101 a fost marcată ca "Curată"</li>
+                <!-- Adaugă alte notificări aici -->
+            </ul>
+        </section>
+    </main>
+
+    <script src="script2.js"></script>
+</body>
+</html>
